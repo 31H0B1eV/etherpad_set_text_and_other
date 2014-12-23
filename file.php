@@ -6,9 +6,11 @@ error_reporting(-1);
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
     $url = 'http://e.znotez.com/api/1/setText';
-    $data = array('apikey' => '2a6e9953aed68276954081992e90d452c3b2c9eb27a12a1d565db8e2800c2fe5',
+    if(isset($_POST['data'])) {
+        $data = array('apikey' => '2a6e9953aed68276954081992e90d452c3b2c9eb27a12a1d565db8e2800c2fe5',
                   'padID' => 'timercity.dev',
                   'text' => $_POST['data']);
+    }
 
 // use key 'http' even if you send the request to https://...
     $options = array(
